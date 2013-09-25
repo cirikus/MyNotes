@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   
   def index
-    @message = params[:message]
+    @all_note = Note.all
   end
 
 end
