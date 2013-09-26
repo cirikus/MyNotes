@@ -1,7 +1,29 @@
 MyNotes::Application.routes.draw do
-  
+
+  resources :notes do
+    collection do
+      get "search"
+    end
+  end
+
+  # Permet de rajouter manuellement une action
+  # Sur une seule note
+  #resources :notes do
+  #   member do
+  #     get "preview"
+  #   end
+  #end
+  # --> Définir l'action "preview dans le controler"
+
+  # Sur plusieurs notes
+  #resources :notes do
+  #   collection do
+  #     get "search"
+  #   end
+  #end
+
+
   root :to => "notes#index"
-  resources :notes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

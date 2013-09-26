@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: "Premier"
+  content: "NoteTest"
+
+two:
+  title: "Second"
+  content: "TestDuTest"
+
+three:
+  title: "Troisieme"
+  content: "SuiteDeLaNote"

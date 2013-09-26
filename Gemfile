@@ -43,3 +43,13 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Simple form
+gem 'simple_form'
+
+# Quiet assets
+gem 'quiet_assets', :group => :development
+
+# Kaminari
+gem 'kaminari', '0.14.1'
+gem 'kaminari-bootstrap', '0.1.3'
