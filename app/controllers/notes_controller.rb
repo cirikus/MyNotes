@@ -62,7 +62,7 @@ class NotesController < ApplicationController
   end
 
   def search
-    @notes = Note.search(params[:element])
+    @notes = Note.search(params[:element]).page params[:page]
     render :index
   end
 

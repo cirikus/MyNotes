@@ -28,8 +28,12 @@
 
 <br>
 
-<%= paginate @notes %>
+<div id="pagination">
+  <%= paginate @notes %>
+</div>
 
 <br>
 
 <%= link_to 'New Note', new_note_path, :class => "btn btn-default btn-lg" %>
+
+<br>
