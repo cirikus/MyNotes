@@ -3,6 +3,15 @@
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :content %>
+  <% if @note.image? %>
+  	<%= 'True' %>
+  	<%= image_tag @note.image_url %> 
+  	<%= f.input :remove_image, :label => false, :inline_label => 'Remove', :as => :boolean %>
+  <% else %>
+  	<%= 'False' %>
+  <% end %>
+  <%= f.input :image, :label => false %>
+  <%= f.input :image_cache, :as => :hidden %>	
   <div class ="form-group">
     <%= f.button :submit %>
   </div>

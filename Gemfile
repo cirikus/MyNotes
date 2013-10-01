@@ -53,3 +53,12 @@ gem 'quiet_assets', :group => :development
 # Kaminari
 gem 'kaminari', '0.14.1'
 gem 'kaminari-bootstrap', '0.1.3'
+
+#devise
+gem 'devise', '3.1.0'
+
+#carrierwave
+gem 'carrierwave', '0.9.0'
+
+#Active Admin
+gem 'activeadmin', github: 'gregbell/active_admin'

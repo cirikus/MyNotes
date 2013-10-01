@@ -7,6 +7,9 @@
       <div class="form-group">
         <%= submit_tag "Search", :class => "btn btn-default" %>
       </div>
+      <div class="form-group">
+        <%= submit_tag "Reset", :type => "reset", :class => "btn btn-default" %>
+      </div>
   <% end %>
 </div>
 
@@ -15,6 +18,7 @@
     <tr>
       <th>Title</th>
       <th>Content</th>
+      <th>Image</th>
       <th></th>
       <th></th>
       <th></th>
@@ -33,7 +37,7 @@
 </div>
 
 <br>
-
-<%= link_to 'New Note', new_note_path, :class => "btn btn-default btn-lg" %>
-
+<% if user_signed_in? %>
+  <%= link_to 'New Note', new_note_path, :class => "btn btn-default btn-lg" %>
+<% end %>
 <br>

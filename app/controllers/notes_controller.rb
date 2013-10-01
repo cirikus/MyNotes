@@ -1,10 +1,16 @@
 class NotesController < ApplicationController
+
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, :only => [:index, :show, :search]  
 
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.page params[:page]
+    if user_signed_in?
+      @notes = current_user.notes.page(params[:page])
+    else
+      @notes = Note.page params[:page]
+    end
   end
 
   # GET /notes/1
@@ -25,7 +31,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
-
+    @note.user = current_user
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
@@ -62,7 +68,11 @@ class NotesController < ApplicationController
   end
 
   def search
-    @notes = Note.search(params[:element]).page params[:page]
+    if user_signed_in?
+      @notes = current_user.notes.search(params[:element]).page(params[:page])
+    else
+      @notes = Note.search(params[:element]).page params[:page]
+    end
     render :index
   end
 
@@ -74,6 +84,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :content)
+      params.require(:note).permit(:title, :content, :image, :remove_image, :image_cache)
     end
 end

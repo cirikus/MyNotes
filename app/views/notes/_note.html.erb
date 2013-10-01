@@ -1,7 +1,20 @@
 <tr>
     <td><%= note.title %></td>
     <td><%= note.content %></td>
+    <td>
+        <% if note.image? %>
+            <%= image_tag "downward-arrow-7.png" %>
+        <% end %>
+    </td>
     <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+    	<% if user_signed_in? %>
+    		<%= link_to 'Edit', edit_note_path(note) %>
+    	<% end %>
+    </td>
+    <td>
+    	<% if user_signed_in? %>
+    		<%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+    	<% end %>
+    </td>
 </tr>

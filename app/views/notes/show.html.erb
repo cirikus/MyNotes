@@ -1,13 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
-  <%= @note.title %>
+  	<strong>Title:</strong>
+  	<%= @note.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @note.content %>
+  	<strong>Content:</strong>
+  	<%= @note.content %>
+</p>
+<p>
+ 	<% if @note.image? %>
+ 	<%= image_tag @note.image_url %>
+	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_note_path(@note) %> |
